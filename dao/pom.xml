@@ -42,5 +42,22 @@
             </configuration>
         </plugin>
     </plugins>
+    <extensions>
+      <extension>
+        <groupId>io.packagecloud.maven.wagon</groupId>
+        <artifactId>maven-packagecloud-wagon</artifactId>
+        <version>0.0.6</version>
+      </extension>
+    </extensions>
   </build>
+  <distributionManagement>
+    <repository>
+      <id>packagecloud-michaelmior</id>
+      <url>packagecloud+https://packagecloud.io/michaelmior/Metanome</url>
+    </repository>
+    <snapshotRepository>
+      <id>packagecloud-michaelmior</id>
+      <url>packagecloud+https://packagecloud.io/michaelmior/Metanome</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
