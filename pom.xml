@@ -40,6 +40,11 @@
           <artifactId>wagon-ssh</artifactId>
           <version>2.4</version>
         </extension>
+        <extension>
+          <groupId>io.packagecloud.maven.wagon</groupId>
+          <artifactId>maven-packagecloud-wagon</artifactId>
+          <version>0.0.6</version>
+        </extension>
       </extensions>
     </build>
 
@@ -65,6 +70,17 @@
         </dependency>
       </dependencies>
     </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>packagecloud-michaelmior</id>
+            <url>packagecloud+https://packagecloud.io/michaelmior/Metanome</url>
+        </repository>
+        <snapshotRepository>
+            <id>packagecloud-michaelmior</id>
+            <url>packagecloud+https://packagecloud.io/michaelmior/Metanome</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <modules>
         <module>utils</module>
