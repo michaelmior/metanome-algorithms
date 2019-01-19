@@ -17,7 +17,7 @@
     <parent>
         <groupId>de.metanome.algorithms.dcucc</groupId>
         <artifactId>DCUCC</artifactId>
-        <version>1.2-SNAPSHOT</version>
+        <version>1.2-calcite-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -25,12 +25,12 @@
         <dependency>
             <groupId>de.uni-potsdam.hpi</groupId>
             <artifactId>utils</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1-calcite-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>de.uni-potsdam.hpi</groupId>
             <artifactId>dao</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1-calcite-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>de.metanome</groupId>
@@ -48,12 +48,12 @@
         <dependency>
             <groupId>de.metanome.algorithms.ducc</groupId>
             <artifactId>DUCCAlgorithm</artifactId>
-            <version>1.2-SNAPSHOT</version>
+            <version>1.2-calcite-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>de.metanome.algorithms.test_helper</groupId>
             <artifactId>dcucc_test_helper</artifactId>
-            <version>1.2-SNAPSHOT</version>
+            <version>1.2-calcite-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>it.unimi.dsi</groupId>
