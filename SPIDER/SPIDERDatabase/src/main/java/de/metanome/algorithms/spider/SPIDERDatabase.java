@@ -18,6 +18,7 @@ import de.metanome.algorithm_integration.configuration.ConfigurationRequirementS
 import de.metanome.algorithm_integration.input.DatabaseConnectionGenerator;
 import de.metanome.algorithm_integration.result_receiver.InclusionDependencyResultReceiver;
 import de.metanome.algorithms.spider.core.SPIDER;
+import de.uni_potsdam.hpi.dao.CalciteDataAccessObject;
 import de.uni_potsdam.hpi.dao.DB2DataAccessObject;
 import de.uni_potsdam.hpi.dao.MySQLDataAccessObject;
 import de.uni_potsdam.hpi.dao.PostgreSQLDataAccessObject;
@@ -27,7 +28,7 @@ import de.uni_potsdam.hpi.utils.FileUtils;
 public class SPIDERDatabase extends SPIDER implements InclusionDependencyAlgorithm, DatabaseConnectionParameterAlgorithm, IntegerParameterAlgorithm, StringParameterAlgorithm, BooleanParameterAlgorithm {
 
 	public enum Database {
-		MYSQL, DB2, POSTGRESQL, FILE
+		CALCITE, MYSQL, DB2, POSTGRESQL, FILE
 	}
 	
 	public enum Identifier {
@@ -133,6 +134,8 @@ public class SPIDERDatabase extends SPIDER implements InclusionDependencyAlgorit
 				this.dao = new DB2DataAccessObject();
 			else if (SPIDERDatabase.Database.POSTGRESQL.name().equals(values[0]))
 				this.dao = new PostgreSQLDataAccessObject();
+			else if (SPIDERDatabase.Database.CALCITE.name().equals(values[0]))
+				this.dao = new CalciteDataAccessObject();
 			else
 				this.handleUnknownConfiguration(identifier, CollectionUtils.concat(values, ","));
 		}
