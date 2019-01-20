@@ -230,8 +230,8 @@ public class BINDER {
 			this.output();
 			this.outputTime = System.currentTimeMillis() - this.outputTime;
 			
-			System.out.println(this.toString());
-			System.out.println();
+			System.err.println(this.toString());
+			System.err.println();
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -251,7 +251,7 @@ public class BINDER {
 	}
 	
 	private void initialize() throws InputGenerationException, SQLException, InputIterationException, AlgorithmConfigurationException {
-		System.out.println("Initializing ...");
+		System.err.println("Initializing ...");
 		
 		// Ensure the presence of an input generator
 		if ((this.databaseConnectionGenerator == null) && (this.fileInputGenerator == null))
@@ -348,7 +348,7 @@ public class BINDER {
 	}
 	
 	private void bucketize() throws InputGenerationException, InputIterationException, IOException, AlgorithmConfigurationException {
-		System.out.print("Bucketizing ... ");
+		System.err.print("Bucketizing ... ");
 		
 		// Initialize the counters that count the empty buckets per bucket level to identify sparse buckets and promising bucket levels for comparison
 		int[] emptyBuckets = new int[this.numBucketsPerColumn];
@@ -362,7 +362,7 @@ public class BINDER {
 		
 		for (int tableIndex = 0; tableIndex < this.tableNames.length; tableIndex++) {
 			String tableName = this.tableNames[tableIndex];
-			System.out.print(tableName + " ");
+			System.err.print(tableName + " ");
 			
 			int numTableColumns = (this.tableColumnStartIndexes.length > tableIndex + 1) ? this.tableColumnStartIndexes[tableIndex + 1] - this.tableColumnStartIndexes[tableIndex] : this.numColumns - this.tableColumnStartIndexes[tableIndex];
 			int startTableColumnIndex = this.tableColumnStartIndexes[tableIndex];
@@ -470,7 +470,7 @@ public class BINDER {
 		// Calculate the bucket comparison order from the emptyBuckets to minimize the influence of sparse-attribute-issue
 		this.calculateBucketComparisonOrder(emptyBuckets);
 		
-		System.out.println();
+		System.err.println();
 	}
 		
 	@SuppressWarnings("unused")
@@ -739,7 +739,7 @@ public class BINDER {
 	}
 	
 	private void checkViaTwoStageIndexAndLists() throws IOException {
-		System.out.println("Checking ...");
+		System.err.println("Checking ...");
 		
 		/////////////////////////////////////////////////////////
 		// Phase 2.1: Pruning (Dismiss first candidates early) //
@@ -1122,7 +1122,7 @@ public class BINDER {
 	}
 	
 	private void detectNaryViaBucketing() throws InputGenerationException, InputIterationException, IOException, AlgorithmConfigurationException {
-		System.out.print("N-ary IND detection ...");
+		System.err.print("N-ary IND detection ...");
 		
 		// Clean temp
 		if (this.cleanTemp)
@@ -1158,7 +1158,7 @@ public class BINDER {
 		this.naryLoadTime = new LongArrayList();
 		this.naryCompareTime = new LongArrayList();
 		while (++naryLevel <= this.maxNaryLevel || this.maxNaryLevel <= 0) {
-			System.out.print(" L" + naryLevel);
+			System.err.print(" L" + naryLevel);
 			
 			// Generate (n+1)-ary IND candidates from the already identified unary and n-ary IND candidates
 			final long naryGenerationTimeCurrent = System.currentTimeMillis();
@@ -1205,9 +1205,9 @@ public class BINDER {
 			naryOffset = naryOffset + attributeCombinations.size();
 
 			this.naryCompareTime.add(System.currentTimeMillis() - naryCompareTimeCurrent);
-			System.out.print("(" + (System.currentTimeMillis() - naryGenerationTimeCurrent) + " ms)");
+			System.err.print("(" + (System.currentTimeMillis() - naryGenerationTimeCurrent) + " ms)");
 		}
-		System.out.println();
+		System.err.println();
 	}
 	
 	@SuppressWarnings("unused")
@@ -1315,7 +1315,7 @@ public class BINDER {
 		
 //if (previousSize >= 3)
 //	return nPlusOneAryDep2ref;
-//System.out.println("apriori-gen level: " + (previousSize + 1));
+//System.err.println("apriori-gen level: " + (previousSize + 1));
 		
 		List<AttributeCombination> deps = new ArrayList<>(naryDep2ref.keySet());
 		for (int i = 0; i < deps.size() - 1; i++) {
@@ -1375,7 +1375,7 @@ public class BINDER {
 							nPlusOneAryDep2ref.put(nPlusOneDep, new LinkedList<AttributeCombination>());
 						nPlusOneAryDep2ref.get(nPlusOneDep).add(nPlusOneRef);
 						
-//System.out.println(CollectionUtils.concat(nPlusOneDep.getAttributes(), ",") + "c" + CollectionUtils.concat(nPlusOneRef.getAttributes(), ","));
+//System.err.println(CollectionUtils.concat(nPlusOneDep.getAttributes(), ",") + "c" + CollectionUtils.concat(nPlusOneRef.getAttributes(), ","));
 					}
 				}
 			}
@@ -1396,7 +1396,7 @@ public class BINDER {
 		if ((naryDep2ref == null) || (naryDep2ref.isEmpty()))
 			return nPlusOneAryDep2ref;
 		
-//System.out.println("Level: " + (naryDep2ref.keySet().iterator().next().getAttributes().length + 1));
+//System.err.println("Level: " + (naryDep2ref.keySet().iterator().next().getAttributes().length + 1));
 //if (naryDep2ref.keySet().iterator().next().getAttributes().length >= 3)
 //	return nPlusOneAryDep2ref;
 		
@@ -1439,7 +1439,7 @@ public class BINDER {
 						
 						nPlusOneAryDep2ref.get(nPlusOneDep).add(nPlusOneRef);
 						
-//System.out.println(CollectionUtils.concat(nPlusOneDep.getAttributes(), ",") + "c" + CollectionUtils.concat(nPlusOneRef.getAttributes(), ","));
+//System.err.println(CollectionUtils.concat(nPlusOneDep.getAttributes(), ",") + "c" + CollectionUtils.concat(nPlusOneRef.getAttributes(), ","));
 					}
 				}
 			}
@@ -1719,7 +1719,7 @@ public class BINDER {
 	}
 	
 	private void output() throws CouldNotReceiveResultException, ColumnNameMismatchException {
-		System.out.println("Generating output ...");
+		System.err.println("Generating output ...");
 		
 		// Output unary INDs
 		for (int dep : this.dep2ref.keySet()) {

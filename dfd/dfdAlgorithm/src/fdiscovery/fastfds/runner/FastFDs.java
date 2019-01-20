@@ -44,21 +44,21 @@ public class FastFDs extends Miner {
 
 			inputFileProcessor = new SVFileProcessor(source);
 			inputFileProcessor.init();
-			System.out.println("Delimiter:\t" + inputFileProcessor.getDelimiter());
-			System.out.println("Columns:\t" + inputFileProcessor.getNumberOfColumns());
-			System.out.println("Rows:\t" + inputFileProcessor.getNumberOfRows());
+			System.err.println("Delimiter:\t" + inputFileProcessor.getDelimiter());
+			System.err.println("Columns:\t" + inputFileProcessor.getNumberOfColumns());
+			System.err.println("Rows:\t" + inputFileProcessor.getNumberOfRows());
 			inputFileProcessor.createColumnFiles();
 			FastFDs fastFDRunner = new FastFDs(inputFileProcessor);
 			
 			fastFDRunner.run();
-			System.out.println(String.format("Dependencies: %d.", Integer.valueOf(fastFDRunner.minimalDependencies.getCount())));
+			System.err.println(String.format("Dependencies: %d.", Integer.valueOf(fastFDRunner.minimalDependencies.getCount())));
 			long timeFindFDs = System.currentTimeMillis();
-			System.out.println("Total time:\t" + (timeFindFDs - timeStart)/1000 + "s");
-			System.out.println(fastFDRunner.getDependencies());
+			System.err.println("Total time:\t" + (timeFindFDs - timeStart)/1000 + "s");
+			System.err.println(fastFDRunner.getDependencies());
 		} catch (FileNotFoundException e) {
-			System.out.println("The input file could not be found.");
+			System.err.println("The input file could not be found.");
 		} catch (IOException e) {
-			System.out.println("The input reader could not be reset.");
+			System.err.println("The input reader could not be reset.");
 		}
 	}
 	
@@ -124,10 +124,10 @@ public class FastFDs extends Miner {
 		try {
 			BufferedWriter resultFileWriter = new BufferedWriter(new FileWriter(new File(outputFile), true));
 			resultFileWriter.write(outputBuilder.toString());
-			System.out.print(outputBuilder.toString());
+			System.err.print(outputBuilder.toString());
 			resultFileWriter.close();
 		} catch (IOException e) {
-			System.out.println("Couldn't write output.");
+			System.err.println("Couldn't write output.");
 		}
 	}
 	
