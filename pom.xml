@@ -49,6 +49,19 @@
       </extensions>
     </build>
 
+    <repositories>
+      <repository>
+        <id>michaelmior-Metanome</id>
+        <url>https://packagecloud.io/michaelmior/Metanome/maven2</url>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+      </repository>
+    </repositories>
+
     <dependencyManagement>
       <dependencies>
         <dependency>
