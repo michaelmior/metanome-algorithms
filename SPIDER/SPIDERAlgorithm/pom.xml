@@ -13,7 +13,7 @@
   <parent>
     <groupId>de.metanome.algorithms.spider</groupId>
     <artifactId>SPIDERModules</artifactId>
-    <version>1.2-calcite-SNAPSHOT</version>
+    <version>1.2-json-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
@@ -28,14 +28,14 @@
     <dependency>
       <groupId>de.uni-potsdam.hpi</groupId>
       <artifactId>utils</artifactId>
-      <version>0.0.1-calcite-SNAPSHOT</version>
+      <version>0.0.1-json-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>de.uni-potsdam.hpi</groupId>
       <artifactId>dao</artifactId>
-      <version>0.0.1-calcite-SNAPSHOT</version>
+      <version>0.0.1-json-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
 

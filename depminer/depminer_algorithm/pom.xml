@@ -10,7 +10,7 @@
     <parent>
         <groupId>de.metanome.algorithms.depminer</groupId>
         <artifactId>DepMinerModules</artifactId>
-        <version>1.2-calcite-SNAPSHOT</version>
+        <version>1.2-json-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>de.metanome.algorithms.depminer</groupId>
             <artifactId>depminer_helper</artifactId>
-            <version>1.2-calcite-SNAPSHOT</version>
+            <version>1.2-json-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

@@ -15,7 +15,7 @@
     <parent>
         <groupId>de.metanome.algorithms.ducc</groupId>
         <artifactId>DUCCModules</artifactId>
-        <version>1.2-calcite-SNAPSHOT</version>
+        <version>1.2-json-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -55,13 +55,13 @@
         <dependency>
             <groupId>de.metanome.algorithms.ducc</groupId>
             <artifactId>ducc_test_helper</artifactId>
-            <version>1.2-calcite-SNAPSHOT</version>
+            <version>1.2-json-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>de.metanome.algorithms.ducc</groupId>
             <artifactId>DUCCAlgorithm</artifactId>
-            <version>1.2-calcite-SNAPSHOT</version>
+            <version>1.2-json-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
