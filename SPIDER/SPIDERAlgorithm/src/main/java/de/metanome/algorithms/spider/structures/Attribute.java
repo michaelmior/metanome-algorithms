@@ -116,6 +116,13 @@ public class Attribute implements Comparable<Attribute>, Closeable {
 			throw new AlgorithmExecutionException(e.getMessage());
 		}
 	}
+
+	public void addAttribute(int attributeId, List<String> attributeTypes) {
+		if ((attributeId != this.attributeId) && (DatabaseUtils.matchSameDataTypeClass(attributeTypes.get(attributeId), attributeTypes.get(this.attributeId)))) {
+			this.referenced.add(attributeId);
+			this.dependents.add(attributeId);
+		}
+	}
 	
 	public int getAttributeId() {
 		return this.attributeId;

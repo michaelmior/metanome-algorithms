@@ -33,7 +33,7 @@ public class TPMMS {
 				String value = relationalInput.next().get(relativeAttributeIndex);
 				inputRowLimit--;
 				
-				if (value == null)
+				if (value == null || value.length() == 0)
 					continue;
 				
 				// Replace line breaks with the zero-character, because these line breaks would otherwise split values when later written to plane-text files

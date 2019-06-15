@@ -22,5 +22,6 @@
     <module>SPIDERAlgorithm</module>
     <module>SPIDERDatabase</module>
     <module>SPIDERFile</module>
+    <module>SPIDERJson</module>
   </modules>
 </project>
